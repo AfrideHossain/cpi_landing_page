@@ -284,6 +284,7 @@ html, body
         position: absolute;
         top: 0;
         left: 0;
+        align-items: center;
         opacity: .2;
     }
     .head_box .headbox_texts
