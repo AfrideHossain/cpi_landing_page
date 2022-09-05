@@ -27,6 +27,7 @@
 
 :root
 {
+    --red : #da0000;
     --blue : #0815ff;
     --white : #eeeff9;
     --black : #121012;
@@ -62,12 +63,13 @@ html, body
     height: 60px;
     background: #fff;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     /* border: 1px solid red; */
 }
 .navbar .nav_logo
 {
+    margin-left: 20px;
     width: 250px;
     height: 40px;
     padding: 0 10px;
@@ -77,10 +79,19 @@ html, body
     width: 100%;
     height: 100%;
 }
+.nav_link_pair {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+    align-items: center;
+}
 .navbar .nav_links
 {
-    width: auto;
+    width: 100%;
     height: fit-content;
+    display: flex;
+    justify-content: center;
     /* border: 1px solid blue; */
 }
 .nav_links .nav_link
@@ -103,6 +114,7 @@ html, body
     height: 40px;
     background-color: var(--blue);
     display: flex;
+    justify-self: flex-end;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
@@ -123,9 +135,40 @@ html, body
 {
     background-color: var(--purple);
 }
+.nav_mob_btn
+{
+    font-size: 2em;
+    cursor: pointer;
+}
+#nav_mob_open
+{
+    color: var(--blue);
+    display: none;
+}
+#nav_mob_close
+{
+    color: var(--red);
+    display: none;
+}
 /* Media query for navbar goes here */
-/* Code */
-/* Media query for navbar goes here */
+@media only screen and (max-width: 600px) {
+    .nav_logo
+    {
+        width: 100%;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .nav_link_pair
+    {
+        display: none;
+    }
+    #nav_mob_open
+    {
+        display: block;
+    }
+}
+/* Media query for navbar ends here */
 .head_box
 {
     width: 100%;
@@ -225,8 +268,32 @@ html, body
     background-color: var(--purple);
 }
 /* Media query for head_box goes here */
-/* Code */
-/* Media query for head_box goes here */
+@media only screen and (max-width: 600px) {
+    /* .head_box
+    {   
+        background-image: url("/images/pngaaa.com-1084071.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    } */
+    .head_box .headbox_img
+    {
+        width: 100%;
+        /* display: none; */
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: .2;
+    }
+    .head_box .headbox_texts
+    {
+        width: 100%;
+        padding: 20px;
+        z-index: 1;
+    }
+}
+/* Media query for head_box ends here */
 
 .depts
 {
@@ -354,7 +421,39 @@ html, body
     font-size: 14px;
 }
 /* Media query for We are best goes here */
-/* Code */
+@media only screen and (max-width:600px){
+    .depts
+    {
+        width: fit-content;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px auto;
+        /* border: 1px solid red; */
+    }
+    .mainBest_head h1
+    {
+        font-size: 1.5em;
+    }
+    .mainBest_head p
+    {
+        font-size: 12px;
+    }
+    .mainBestBody
+    {
+        height: auto;
+        padding-bottom: 20px;
+    }
+    .mainBestBody .mainBest_cards
+    {
+        flex-direction: column;
+        align-items: center;
+        justify-content: unset;
+    }
+    .mainBest_cards .bestCard
+    {
+        margin: 5px;
+    }
+}
 /* Media query for We are best goes here */
 
 .portfolio_section
@@ -383,20 +482,24 @@ html, body
 }
 .portfolio_section .portfolio_contents
 {
-    width: 700px;
+    width: auto;
     height: auto;
     margin: 0 auto 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid red; */
+    /* border: 1px solid rgb(0, 255, 149); */
 }
 .slide_box
 {
-    width: 800px;
+    /* width: 800px; */
+    width: 400px;
     height: 200px;
     display: flex;
+    justify-content: center;
     align-items: center;
+    /* overflow: hidden;
+    overflow-x: scroll; */
     /* border: 1px solid red; */
 }
 .slide_box .slide
@@ -424,7 +527,7 @@ html, body
 .slide h3
 {
     /* font-family: "roboto normal"; */
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1.2em;
     color: var(--black);
 }
@@ -449,14 +552,37 @@ html, body
 }
 .arrow
 {
+    width: fit-content;
     font-size: 3em;
     color: var(--gray);
     cursor: pointer;
     user-select: none;
 }
 /* Media query for portfolio goes here */
-/* Code */
-/* Media query for portfolio goes here */
+@media only screen and (max-width: 600px){
+    .portfolio_head h2
+    {
+        padding: 0 10px;
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .slide_box
+    {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+    }
+    .slide_box .slide
+    {
+        width: 100%;
+        height: auto;
+    }
+    .arrow
+    {
+        font-size: 2em;
+    }
+}
+/* Media query for portfolio ends here */
 .footer_section
 {
     padding: 20px;
@@ -466,8 +592,9 @@ html, body
     justify-content: space-evenly;
     align-items: flex-start;
 }
-.footer_section .footer_left, .footer_mid, .footer_right
+.footer_left, .footer_mid, .footer_right
 {
+    margin: 10px 0;
     width: 300px;
 }
 .footer_left img
@@ -511,3 +638,12 @@ html, body
     font-size: 1.5em;
     margin-right: 10px;
 }
+/* Media query for footer goes here */
+    @media only screen and (max-width: 600px) {
+        .footer_section
+        {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+    }
+/* Media query for footer goes here */
