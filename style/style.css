@@ -62,9 +62,10 @@ html, body
     width: 100%;
     height: 60px;
     background: #fff;
+    padding: 10px 0;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    /* align-items: center; */
     /* border: 1px solid red; */
 }
 .navbar .nav_logo
@@ -86,7 +87,7 @@ html, body
     /* border: 1px solid red; */
     align-items: center;
 }
-.navbar .nav_links
+.nav_links
 {
     width: 100%;
     height: fit-content;
@@ -107,36 +108,40 @@ html, body
 {
     color: var(--blue);
 }
-.navbar .nav_btns
+.nav_btns
 {
     margin-right: 10px;
     width: 150px;
     height: 40px;
-    background-color: var(--blue);
     display: flex;
     justify-self: flex-end;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
 }
 .nav_btns .nav_btn
 {
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    height: 40px;
+    background-color: var(--blue);
     display: flex;
     justify-content: center;
     align-items: center;
     color: var(--white);
     /* font-family: "roboto medium"; */
     font-weight: 500;
+    border-radius: 5px;
     text-decoration: none;
 }
-.nav_btns:hover
+.nav_btn:hover
 {
     background-color: var(--purple);
 }
 .nav_mob_btn
 {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 2em;
     cursor: pointer;
 }
@@ -150,8 +155,52 @@ html, body
     color: var(--red);
     display: none;
 }
+/* +++++++++++ Mobile navbar +++++++++++ */
+.mob_nav
+{
+    height: 300px;
+    margin: 5px 30px;
+    margin-bottom: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: var(--gray);
+    animation: mob_nav 1s;
+
+}
+.mob_nav .nav_links
+{
+    width: 100%;
+    flex-direction: column;
+}
+.mob_nav .nav_links .nav_link
+{
+    width: 100%;
+    height: 40px;
+}
+.mob_nav_active
+{
+    display: flex;
+}
+@keyframes mob_nav {
+    from{
+        height: 0px;
+    }
+    to{
+        height: 300px;
+    }
+}
+/* +++++++++++ Mobile navbar +++++++++++ */
+
 /* Media query for navbar goes here */
 @media only screen and (max-width: 600px) {
+    .navbar
+    {
+        background-color: #fff;
+    }
     .nav_logo
     {
         width: 100%;
@@ -286,6 +335,7 @@ html, body
         left: 0;
         align-items: center;
         opacity: .2;
+        z-index: -1;
     }
     .head_box .headbox_texts
     {
