@@ -9,6 +9,7 @@ nav_mob_open.addEventListener("click", () => {
     nav_mob_open.style.display = "none";
     nav_mob_close.style.display = "block";
     mob_nav.style.display = "flex";
+    mob_nav.style.height = "300px";
     setTimeout(() => {
         mob_nav_links.style.display = "flex";
         mob_nav_btns.style.display = "flex";
