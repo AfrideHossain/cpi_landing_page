@@ -169,7 +169,12 @@ html, body
     border-radius: 5px;
     background-color: var(--gray);
     animation: mob_nav 1s;
+    transition: all 1s;
 
+}
+.mob_nav .nav_links, .nav_btns
+{
+    display: none;
 }
 .mob_nav .nav_links
 {
