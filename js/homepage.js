@@ -19,7 +19,7 @@ nav_mob_close.addEventListener("click", () => {
     nav_mob_open.style.display = "block";
     nav_mob_close.style.display = "none";
     mob_nav_links.style.display = "none";
-    mob_nav_btns.style.display = "none";
+    // mob_nav_btns.style.display = "none";
     setTimeout(() => {
         mob_nav.style.height = "0px";
     }, 500);
