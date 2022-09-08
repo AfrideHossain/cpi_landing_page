@@ -172,12 +172,14 @@ html, body
     transition: all 1s;
 
 }
-.mob_nav .nav_links, .nav_btns
+
+.mob_nav .nav_btns
 {
     display: none;
 }
 .mob_nav .nav_links
 {
+    display: none;
     width: 100%;
     flex-direction: column;
 }
