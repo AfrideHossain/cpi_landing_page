@@ -19,17 +19,18 @@
         <img src="../images/nav_logo_png.png" alt="">
       </div>
       <div class="input_fld">
-        <input type="text" name="student_id" id="student_id" placeholder="Student ID" />
-        <input type="password" name="password" id="" placeholder="Password" />
+        <input type="text" name="username" id="username" placeholder="Username" autocomplete="username" />
+
+        <input type="password" name="password" id="password" placeholder="Password" autocomplete="current-password" />
       </div>
       <div class="pair">
         <div class="input_radio">
           <p class="radio_text">Student</p>
-          <input type="radio" name="user_type" id="user_type" value="student" />
+          <input type="radio" name="user_type" value="student" />
         </div>
         <div class="input_radio">
           <p class="radio_text">Teacher</p>
-          <input type="radio" name="user_type" id="user_type" value="teacher" />
+          <input type="radio" name="user_type" value="teacher" />
         </div>
       </div>
       <div class="input_fld">
@@ -38,6 +39,46 @@
       <a href="" id="reg_from_open" class="form_link">Don't have an account?</a>
     </form>
   </div>
+  <script>
+    const login_btn = document.getElementById("login");
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    const user_type = document.getElementsByName("user_type");
+    // console.log(user_type);
+
+    login_btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      let getUserType = () => {
+        for (let i = 0; i < user_type.length; i++) {
+          if (user_type[i].checked) {
+            return user_type[i].value;
+          }
+
+        }
+      }
+      // getUserType();
+      //define jsonstring using form data
+      let formData = { username: username.value, password: password.value, user_type: getUserType() }
+      let jsonFormData = JSON.stringify(formData);
+      // console.log(jsonFormData);
+
+      // Ajax request
+      let xhr = new XMLHttpRequest();
+      // ajax readystate handle
+      xhr.onreadystatechange = () => {
+        if (this.readyState == 4 && this.status == 200) {
+          let response = this.responeText;
+          console.log(response);
+        }
+      }
+      //open request url
+      xhr.open("POST", "auth_handler.php");
+      //after open set request header
+      xhr.setRequestHeader("Content-Type", "application/json");
+      //send request with data
+      xhr.send(jsonFormData);
+    })
+  </script>
 </body>
 
 </html>
