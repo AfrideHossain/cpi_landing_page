@@ -44,7 +44,6 @@
     const username = document.getElementById("username");
     const password = document.getElementById("password");
     const user_type = document.getElementsByName("user_type");
-    // console.log(user_type);
 
     login_btn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -56,19 +55,28 @@
 
         }
       }
-      // getUserType();
+
       //define jsonstring using form data
       let formData = { username: username.value, password: password.value, user_type: getUserType() }
       let jsonFormData = JSON.stringify(formData);
-      // console.log(jsonFormData);
 
       // Ajax request
       let xhr = new XMLHttpRequest();
       // ajax readystate handle
-      xhr.onreadystatechange = () => {
-        if (this.readyState == 4 && this.status == 200) {
-          let response = this.responeText;
-          console.log(response);
+      xhr.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          let response = JSON.parse(this.responseText); //get response as a json and convert to object;
+          let successState = response.success; //store success property's value
+
+          //comparison for redirect to dashboard
+          if (successState === "true" && response.user_type === "teacher") {
+            location.href = "../member/management/";
+          }
+          else if (successState === "true" && response.user_type === "student") {
+            location.href = "../member/student/";
+          } else {
+            location.reload();
+          }
         }
       }
       //open request url
