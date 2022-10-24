@@ -1,3 +1,10 @@
+<?php
+$uid_cookie = $_COOKIE["uid"];
+// echo $uid_cookie;
+// if (condition) {
+//     # code...
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,8 +82,7 @@
                     </div>
                     <div class="inp_group">
                         <p>Personal phone</p>
-                        <input type="text" name="personalPhone" id="personalPhone"
-                            placeholder="Personal contact number">
+                        <input type="text" name="personalPhone" id="personalPhone" placeholder="Personal contact number">
                     </div>
                 </div>
 
@@ -98,8 +104,7 @@
                     </div>
                     <div class="inp_group">
                         <p>Guardian's phone</p>
-                        <input type="text" name="guardianPhone" id="guardianPhone"
-                            placeholder="Guardian's contact number">
+                        <input type="text" name="guardianPhone" id="guardianPhone" placeholder="Guardian's contact number">
                     </div>
                 </div>
                 <div class="inp_pair">
