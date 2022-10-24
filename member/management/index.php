@@ -1,9 +1,10 @@
 <?php
 $uid_cookie = $_COOKIE["uid"];
 // echo $uid_cookie;
-// if (condition) {
-//     # code...
-// }
+if ($_COOKIE["loggedin"] != "true") {
+    // echo "<script> location.href = '../../auth/'; </script>";
+    header("Location: ../../auth/");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

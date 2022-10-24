@@ -27,6 +27,7 @@ if ($user_type == "teacher") {
         $row = mysqli_fetch_assoc($result); //fetch result as an associative array.
         if ($row["password"] == $password) {
             setcookie("uid", $row["id"], time() + 86400, "/");
+            setcookie("loggedin", "true", time() + 86400, "/");
             $msg_arr = array("success" => "true", "user_type" => $user_type, "msg" => "login credentials matched");
             echo json_encode($msg_arr);
         } else {
@@ -45,6 +46,7 @@ if ($user_type == "teacher") {
         $row = mysqli_fetch_assoc($result); //fetch result as an associative array.
         if ($row["password"] == $password) {
             setcookie("sid", $row["s_id"], time() + 86400, "/");
+            setcookie("loggedin", "true", time() + 86400, "/");
             $msg_arr = array("success" => "true", "user_type" => $user_type, "msg" => "login credentials matched");
             echo json_encode($msg_arr);
         } else {
